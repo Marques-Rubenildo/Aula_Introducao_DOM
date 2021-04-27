@@ -8,9 +8,10 @@
 </head>
 <body>
     <h1>Verificação-De-Nacionalidade</h1>
-    País de origem: <input type="text" name="txtnac" id="txtnac"><!--Solicita um dado ao cliente-->
 
-    <input type="button" value="Verificar" onclick="registrar()">
+    País de origem: <input type="text" name="txtnac" id="txtnac"><!--É um elemento do tipo input que solicita uma informação ao cliente-->
+
+    <input type="button" value="registrar" onclick="registrar()"><!--Cria um botão com a palavra "registrar" dentro-->
 
     <div id="resultado">
 
@@ -18,20 +19,16 @@
 
     <script>
         function registrar(){
-            var txtn = document.querySelector('input#txtnac')//Salva o dado que o usuário inserir no input txtnac.
-
+            var txtn = String(document.querySelector('input#txtnac').value)//Salva o dado que o usuário inserir no input txtnac.
             var resultado = document.querySelector('div#resultado') // Esta variável serve para armazenar a div de id "resultado".
-
-            var nac = String(txtn.value)
             resultado.innerHTML = `<p>Bem vindo ao <strong>ITAMARATY</strong></p>`
-            resultado.innerHTML += `<p>Você nasceu em <strong>${nac}</strong></p>`
-            if (nac === 'Brasil'){
+            resultado.innerHTML += `<p>Você nasceu em <strong>${txtn}</strong></p>`
+            if (txtn === 'Brasil'){
                 resultado.innerHTML += `<p>De acordo com os dados informados você é brasileiro e não precisa de visto para viajar de um ponto para outro neste país!</p>`
             }else{
                 resultado.innerHTML += `<p>De acordo com os dados informados você é estrangeiro e precisará de um visto para poder entrar no Brasil!</p>`
             }
         }
-        
     </script>
 </body>
 </html>
